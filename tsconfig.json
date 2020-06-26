@@ -2,20 +2,22 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "lib": ["es6", "es2015", "dom"],
+    "lib": [
+      "es5",
+    ],
     "declaration": true,
     "rootDir": "src",
-    "outDir": "build",
+    "outDir": "./dist",
     "strict": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
   },
-  "include": ["src"],
-  "exclude": [
-    "template",
-    "test.ts",
-    "node_modules",
-    "build"
+  "include": [
+    "src/**/*"
   ]
 }

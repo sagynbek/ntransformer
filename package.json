@@ -2,7 +2,18 @@
   "name": "ntransformer",
   "version": "1.0.1",
   "description": "Change all substrings of directory names, file names and file content",
-  "main": "index.ts",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "umd:main": "dist/index.umd.js",
+  "unpkg": "dist/index.umd.js",
+  "react-native": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
