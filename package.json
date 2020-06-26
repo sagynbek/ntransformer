@@ -1,6 +1,6 @@
 {
   "name": "ntransformer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Change all substrings of directory names, file names and file content",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -12,14 +12,14 @@
   "files": [
     "dist/**"
   ],
-
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "transform",
     "update",
+    "change",
+    "name",
     "file",
     "directory",
     "folder"
