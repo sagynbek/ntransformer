@@ -41,11 +41,13 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
       if (fs.lstatSync(curPath).isDirectory()) {
         recurse(curPath, config, curDepth + 1);
 
+
         const folderInfo = Path.parse(curPath);
 
         if (folderInfo.base.includes(config.searchKey)) {
-          const folderNewName = folderInfo.base.replace(new RegExp(config.searchKey), config.replaceKey); // RegExp used to catch all occurences
+          const folderNewName = folderInfo.base.replace(new RegExp(config.searchKey, "g"), config.replaceKey); // RegExp used to catch all occurences
           const newFilePath = Path.join(folderInfo.dir, folderNewName);
+
           fs.renameSync(curPath, newFilePath);
         }
       }

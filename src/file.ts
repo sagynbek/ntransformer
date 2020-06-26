@@ -42,8 +42,9 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
       else {
         const fileInfo = Path.parse(curPath);
         if (fileInfo.name.includes(config.searchKey)) {
-          const fileNewName = fileInfo.name.replace(new RegExp(config.searchKey), config.replaceKey); // RegExp used to catch all occurences
+          const fileNewName = fileInfo.name.replace(new RegExp(config.searchKey, "g"), config.replaceKey); // RegExp used to catch all occurences
           const newFilePath = Path.join(fileInfo.dir, fileNewName + fileInfo.ext);
+          
           fs.renameSync(curPath, newFilePath);
         }
       }
