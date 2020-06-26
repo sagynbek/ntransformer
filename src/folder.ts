@@ -4,6 +4,7 @@ import { DEFAULT_DEPTH } from "./constants";
 
 
 interface IConfig {
+  /* Provide absolute path, or will use __dirname*/
   path?: string,
   searchKey: string,
   replaceKey: string,
@@ -12,13 +13,13 @@ interface IConfig {
 
 
 /**
- * Updates all key occurences of folder names, 
+ * [Sync] Updates all key occurences of folder names, 
  * under path recursively
  *
  * @export
  * @param {IConfig} config
  */
-export function updateFolderNamesRecursivelySync(config: IConfig) {
+export function updateFolderNames(config: IConfig) {
   const path = config.path || __dirname;
   console.log(path)
   recurse(path, config);

@@ -4,19 +4,20 @@ import { DEFAULT_DEPTH } from "./constants";
 
 
 interface IConfig {
+  // Provide absolute path, or will use __dirname
   path?: string,
   searchKey: string,
   replaceKey: string,
   maxDepth?: number,
 }
 /**
- * Updates all key occurences of file names, 
+ * [Sync] Updates all key occurences of file names, 
  * under path recursively
  *
  * @export
  * @param {IConfig} config
  */
-export function updateFileNamesRecursivelySync(config: IConfig) {
+export function updateFileNames(config: IConfig) {
   const path = config.path || __dirname;
   recurse(path, config);
 }
