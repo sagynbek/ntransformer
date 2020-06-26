@@ -21,7 +21,6 @@ interface IConfig {
  */
 export function updateDirectoryNames(config: IConfig) {
   const path = config.path || __dirname;
-  console.log(path)
   recurse(path, config);
 }
 
@@ -35,7 +34,6 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
 
     fs.readdirSync(path).forEach((file, index) => {
       const curPath = Path.join(path, file);
-      console.log(curPath);
 
       // directory
       if (fs.lstatSync(curPath).isDirectory()) {
