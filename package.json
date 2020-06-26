@@ -1,7 +1,7 @@
 {
-  "name": "ntransform",
+  "name": "ntransformer",
   "version": "1.0.1",
-  "description": "Update file/folder name and contents recursively",
+  "description": "Change all substrings of directory names, file names and file content",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
     "transform",
     "update",
     "file",
+    "directory",
     "folder"
   ],
   "author": "Sagynbek Kenzhebaev",
@@ -18,5 +19,14 @@
     "@types/node": "14.0.14",
     "ts-node": "8.10.2",
     "typescript": "3.9.5"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sagynbek/ntransform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sagynbek/ntransform/issues"
+  },
+  "homepage": "https://github.com/sagynbek/ntransform#readme"
 }
