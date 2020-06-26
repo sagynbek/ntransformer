@@ -13,13 +13,13 @@ interface IConfig {
 
 
 /**
- * [Sync] Updates all key occurences of folder names, 
+ * [Sync] Updates all key occurences of directory names, 
  * under path recursively
  *
  * @export
  * @param {IConfig} config
  */
-export function updateFolderNames(config: IConfig) {
+export function updateDirectoryNames(config: IConfig) {
   const path = config.path || __dirname;
   console.log(path)
   recurse(path, config);

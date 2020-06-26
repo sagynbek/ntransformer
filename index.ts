@@ -1,11 +1,10 @@
-
 import { updateFileNames } from './src/file';
-import { updateFolderNames } from './src/folder';
+import { updateDirectoryNames } from './src/directory';
 import { updateFileContent } from './src/file-content';
 
 
 export {
   updateFileNames,
-  updateFolderNames,
+  updateDirectoryNames,
   updateFileContent
 }
