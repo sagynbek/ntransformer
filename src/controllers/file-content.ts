@@ -1,6 +1,6 @@
 import fs from "fs";
 import Path from "path";
-import { DEFAULT_DEPTH } from "./constants";
+import { DEFAULT_DEPTH } from "../constants";
 
 const PERMITTED_FILE_EXTENSIONS = [".txt", ".js", ".ts", ".json", ""];
 
