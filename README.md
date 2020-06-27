@@ -1,14 +1,92 @@
-## ntransformer
+# ntransformer
 
 This package can help you to change substrings of directory names, file names and file content. 
 Also it does it recursively, so you can change all occurences under certain directory.
 
+Written purely using TypeScript, so it's strongly typed
+
 All function have config parameter `maxDepth` which control depth of recursion
 
 
-### Demo
-Changing file names:
+> Run `npm i ntransformer` to install package
+
+___
+
+### Changing file names:
+Changes `searchKey` with `replaceKey` in file names under `path` recursively
+
+> Example use of **updateFileNames**
+
+```javascript
+const ntransformer = require("ntransformer");
+
+ntransformer.updateFileNames({ 
+  searchKey: 'searchkey',
+  replaceKey: 'replaceKey',
+  path: path.join(__dirname, "target-folder")
+})
+```
+
+| Config                      | Values                                    | Description                           | 
+| -------------               | ----------------------                    |:----------------------:               | 
+| path                        | string (Default = **__dirname**)          | absolute path                         |
+| searchKey                   | string (**required**, case sensitive)     | search key substring                  |
+| replaceKey                  | string (**required**)                     | replace key                           |
+| maxDepth                    | number (Default = **10**)                 | maximum recursion depth               |
+
+
 ![Application image](./images/file-name-demo.gif?raw=true)
 
-Changing directory names:
+___
+
+### Changing directory names:
+
+Changes `searchKey` with `replaceKey` in directory names under `path` recursively
+
+> Example use of **updateDirectoryNames**
+
+```javascript
+const ntransformer = require("ntransformer");
+
+ntransformer.updateDirectoryNames({ 
+  searchKey: 'searchkey',
+  replaceKey: 'replaceKey',
+  path: path.join(__dirname, "target-folder")
+})
+```
+
+| Config                      | Values                                    | Description                           | 
+| -------------               | ----------------------                    |:----------------------:               | 
+| path                        | string (Default = **__dirname**)          | absolute path                         |
+| searchKey                   | string (**required**, case sensitive)     | search key substring                  |
+| replaceKey                  | string (**required**)                     | replace key                           |
+| maxDepth                    | number (Default = **10**)                 | maximum recursion depth               |
+
 ![Application image](./images/directory-name-demo.gif?raw=true)
+
+___
+
+### Replacing file contents:
+
+Replaces `searchKey` with `replaceKey` in all allowed (by extensions) files under `path` recursively
+
+> Example use of **updateFileContent**
+
+```javascript
+const ntransformer = require("ntransformer");
+
+ntransformer.updateFileContent({ 
+  searchKey: 'searchkey',
+  replaceKey: 'replaceKey',
+  path: path.join(__dirname, "target-folder"),
+  permittedFileExtensions: [".txt", ".js", ".ts", ".json"]
+})
+```
+
+| Config                      | Values                                                              | Description                           | 
+| -------------               | ----------------------                                              |:----------------------:               | 
+| path                        | string (Default = **__dirname**)                                    | absolute path                         |
+| searchKey                   | string (**required**, case sensitive)                               | search key substring                  |
+| replaceKey                  | string (**required**)                                               | replace key                           |
+| maxDepth                    | number (Default = **10**)                                           | maximum recursion depth               |
+| permittedFileExtensions     | Array of string (Default = **[".txt", ".js", ".ts", ".json"]**)     | maximum recursion depth               |
