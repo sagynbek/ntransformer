@@ -32,7 +32,7 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
 
   if (fs.existsSync(path)) {
 
-    fs.readdirSync(path).forEach((file, index) => {
+    fs.readdirSync(path).forEach((file) => {
       const curPath = Path.join(path, file);
 
       // directory

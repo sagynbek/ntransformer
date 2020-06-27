@@ -2,7 +2,7 @@ import fs from "fs";
 import Path from "path";
 import { DEFAULT_DEPTH } from "../constants";
 
-const PERMITTED_FILE_EXTENSIONS = [".txt", ".js", ".ts", ".json", ""];
+const PERMITTED_FILE_EXTENSIONS = [".txt", ".js", ".ts", ".json"];
 
 interface IConfig {
   // Provide absolute path, or will use __dirname
@@ -34,7 +34,7 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
   }
 
   if (fs.existsSync(path)) {
-    fs.readdirSync(path).forEach((file, index) => {
+    fs.readdirSync(path).forEach((file) => {
       const curPath = Path.join(path, file);
 
       // directory
@@ -46,7 +46,7 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
         const fileInfo = Path.parse(curPath);
         if (permittedFileExtensions.includes(fileInfo.ext)) {
           const fileContent = fs.readFileSync(curPath, { encoding: "utf-8" });
-          
+
           if (fileContent.includes(config.searchKey)) {
             const updatedFileContent = fileContent.replace(new RegExp(config.searchKey, "g"), config.replaceKey);
             fs.writeFileSync(curPath, updatedFileContent, { encoding: "utf-8" });

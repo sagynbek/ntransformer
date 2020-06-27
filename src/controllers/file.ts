@@ -31,7 +31,7 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
   }
 
   if (fs.existsSync(path)) {
-    fs.readdirSync(path).forEach((file, index) => {
+    fs.readdirSync(path).forEach((file) => {
       const curPath = Path.join(path, file);
 
       // directory
@@ -44,7 +44,7 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
         if (fileInfo.name.includes(config.searchKey)) {
           const fileNewName = fileInfo.name.replace(new RegExp(config.searchKey, "g"), config.replaceKey); // RegExp used to catch all occurences
           const newFilePath = Path.join(fileInfo.dir, fileNewName + fileInfo.ext);
-          
+
           fs.renameSync(curPath, newFilePath);
         }
       }
