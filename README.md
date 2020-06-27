@@ -7,4 +7,8 @@ All function have config parameter `maxDepth` which control depth of recursion
 
 
 ### Demo
-![Application image](./images/folder-file-demo.gif?raw=true)
+Changing file names:
+![Application image](./images/file-name-demo.gif?raw=true)
+
+Changing directory names:
+![Application image](./images/directory-name-demo.gif?raw=true)
