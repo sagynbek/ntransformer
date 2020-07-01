@@ -27,12 +27,12 @@ ntransformer.updateFileNames({
 })
 ```
 
-| Config                      | Values                                    | Description                           | 
-| -------------               | ----------------------                    |:----------------------:               | 
-| path                        | string (Default = **__dirname**)          | absolute path                         |
-| searchKey                   | string (**required**, case sensitive)     | search key substring                  |
-| replaceKey                  | string (**required**)                     | replace key                           |
-| maxDepth                    | number (Default = **10**)                 | maximum recursion depth               |
+| Config                      | Values                                            | Required    | Description                           | 
+| -------------               | ----------------------                            | :---------: | ----------------------                | 
+| path                        | string (Default = **__dirname**)                  | No          | absolute path                         |
+| searchKey                   | string|RegExp (case sensitive)                    | Yes         | search key substring                  |
+| replaceKey                  | string                                            | Yes         | replace key                           |
+| maxDepth                    | number (Default = **10**)                         | No          | maximum recursion depth               |
 
 
 ![Application image](./images/file-name-demo.gif?raw=true)
@@ -55,12 +55,12 @@ ntransformer.updateDirectoryNames({
 })
 ```
 
-| Config                      | Values                                    | Description                           | 
-| -------------               | ----------------------                    |:----------------------:               | 
-| path                        | string (Default = **__dirname**)          | absolute path                         |
-| searchKey                   | string (**required**, case sensitive)     | search key substring                  |
-| replaceKey                  | string (**required**)                     | replace key                           |
-| maxDepth                    | number (Default = **10**)                 | maximum recursion depth               |
+| Config                      | Values                                            | Required    | Description                           | 
+| -------------               | ----------------------                            | :---------: | ----------------------                | 
+| path                        | string (Default = **__dirname**)                  | No          | absolute path                         |
+| searchKey                   | string|RegExp (case sensitive)                    | Yes         | search key substring                  |
+| replaceKey                  | string                                            | Yes         | replace key                           |
+| maxDepth                    | number (Default = **10**)                         | No          | maximum recursion depth               |
 
 ![Application image](./images/directory-name-demo.gif?raw=true)
 
@@ -83,10 +83,10 @@ ntransformer.updateFileContent({
 })
 ```
 
-| Config                      | Values                                                              | Description                           | 
-| -------------               | ----------------------                                              |:----------------------:               | 
-| path                        | string (Default = **__dirname**)                                    | absolute path                         |
-| searchKey                   | string (**required**, case sensitive)                               | search key substring                  |
-| replaceKey                  | string (**required**)                                               | replace key                           |
-| maxDepth                    | number (Default = **10**)                                           | maximum recursion depth               |
-| permittedFileExtensions     | Array of string (Default = **[".txt", ".js", ".ts", ".json"]**)     | maximum recursion depth               |
+| Config                      | Values                                                              | Required    | Description                           | 
+| -------------               | ----------------------                                              | :---------: | ----------------------                | 
+| path                        | string (Default = **__dirname**)                                    | No          | absolute path                         |
+| searchKey                   | string|RegExp (case sensitive)                                      | Yes         | search key substring                  |
+| replaceKey                  | string                                                              | Yes         | replace key                           |
+| maxDepth                    | number (Default = **10**)                                           | No          | maximum recursion depth               |
+| permittedFileExtensions     | Array of string (Default = **[".txt", ".js", ".ts", ".json"]**)     | No          | maximum recursion depth               |
