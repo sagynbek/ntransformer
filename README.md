@@ -30,7 +30,7 @@ ntransformer.updateFileNames({
 | Config                      | Values                                            | Required    | Description                           | 
 | -------------               | ----------------------                            | :---------: | ----------------------                | 
 | path                        | string (Default = **__dirname**)                  | No          | absolute path                         |
-| searchKey                   | string|RegExp (case sensitive)                    | Yes         | search key substring                  |
+| searchKey                   | string \| RegExp (case sensitive)                 | Yes         | search key substring                  |
 | replaceKey                  | string                                            | Yes         | replace key                           |
 | maxDepth                    | number (Default = **10**)                         | No          | maximum recursion depth               |
 
@@ -58,7 +58,7 @@ ntransformer.updateDirectoryNames({
 | Config                      | Values                                            | Required    | Description                           | 
 | -------------               | ----------------------                            | :---------: | ----------------------                | 
 | path                        | string (Default = **__dirname**)                  | No          | absolute path                         |
-| searchKey                   | string|RegExp (case sensitive)                    | Yes         | search key substring                  |
+| searchKey                   | string \| RegExp (case sensitive)                 | Yes         | search key substring                  |
 | replaceKey                  | string                                            | Yes         | replace key                           |
 | maxDepth                    | number (Default = **10**)                         | No          | maximum recursion depth               |
 
@@ -86,7 +86,7 @@ ntransformer.updateFileContent({
 | Config                      | Values                                                              | Required    | Description                           | 
 | -------------               | ----------------------                                              | :---------: | ----------------------                | 
 | path                        | string (Default = **__dirname**)                                    | No          | absolute path                         |
-| searchKey                   | string|RegExp (case sensitive)                                      | Yes         | search key substring                  |
+| searchKey                   | string \| RegExp (case sensitive)                                   | Yes         | search key substring                  |
 | replaceKey                  | string                                                              | Yes         | replace key                           |
 | maxDepth                    | number (Default = **10**)                                           | No          | maximum recursion depth               |
 | permittedFileExtensions     | Array of string (Default = **[".txt", ".js", ".ts", ".json"]**)     | No          | maximum recursion depth               |
