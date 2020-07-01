@@ -7,7 +7,7 @@ const PERMITTED_FILE_EXTENSIONS = [".txt", ".js", ".ts", ".json"];
 interface IConfig {
   // Provide absolute path, or will use __dirname
   path?: string,
-  searchKey: string,
+  searchKey: string | RegExp,
   replaceKey: string,
   maxDepth?: number,
   permittedFileExtensions?: Array<string>,
@@ -46,9 +46,10 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
         const fileInfo = Path.parse(curPath);
         if (permittedFileExtensions.includes(fileInfo.ext)) {
           const fileContent = fs.readFileSync(curPath, { encoding: "utf-8" });
+          const regex = (config.searchKey instanceof RegExp) ? config.searchKey : new RegExp(config.searchKey, "g");
 
-          if (fileContent.includes(config.searchKey)) {
-            const updatedFileContent = fileContent.replace(new RegExp(config.searchKey, "g"), config.replaceKey);
+          if (fileContent.match(regex)) {
+            const updatedFileContent = fileContent.replace(regex, config.replaceKey);
             fs.writeFileSync(curPath, updatedFileContent, { encoding: "utf-8" });
           }
         }

@@ -6,7 +6,7 @@ import { DEFAULT_DEPTH } from "../constants";
 interface IConfig {
   // Provide absolute path, or will use __dirname
   path?: string,
-  searchKey: string,
+  searchKey: string | RegExp,
   replaceKey: string,
   maxDepth?: number,
 }
@@ -41,8 +41,10 @@ function recurse(path: string, config: IConfig, curDepth: number = 0) {
       // file
       else {
         const fileInfo = Path.parse(curPath);
-        if (fileInfo.name.includes(config.searchKey)) {
-          const fileNewName = fileInfo.name.replace(new RegExp(config.searchKey, "g"), config.replaceKey); // RegExp used to catch all occurences
+        const regex = (config.searchKey instanceof RegExp) ? config.searchKey : new RegExp(config.searchKey, "g");
+
+        if (fileInfo.name.match(regex)) {
+          const fileNewName = fileInfo.name.replace(regex, config.replaceKey); // RegExp used to catch all occurences
           const newFilePath = Path.join(fileInfo.dir, fileNewName + fileInfo.ext);
 
           fs.renameSync(curPath, newFilePath);
